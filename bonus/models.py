@@ -4,12 +4,12 @@ from django.db import models
 
 
 class Prize(models.Model):
-    prize_id = models.CharField(max_length=20)
-    prize_cname = models.CharField(max_length=20)
-    prize_amount = models.IntegerField()
+    pid = models.CharField(max_length=25)
+    cname = models.CharField(max_length=20)
+    amount = models.IntegerField()
 
     def __str__(self):
-        return self.prize_cname
+        return self.cname
 
 
 class Winner(models.Model):
@@ -18,4 +18,6 @@ class Winner(models.Model):
         "Prize", on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.prize_id.prize_cname + ", " + self.last_ssn
+        return self.prize_id.cname + ", " + self.last_ssn
+
+
