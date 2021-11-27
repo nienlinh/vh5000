@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block prize %}
+
+<h2> 獎項超級多 </h2>
+<ul>
+    {% for p in prize_list %}
+    <li>{{p.prize_id}}, {{p.prize_cname}}
+        {% endfor %}
+</ul>
+
+{% endblock %}
