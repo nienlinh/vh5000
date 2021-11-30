@@ -9,4 +9,13 @@
         {% endfor %}
 </ul>
 
+<h2> 恭喜得獎者 </h2>
+
+<ul>
+    {% for w in winner_list %}
+    <li>{{w.prize_id}}, {{w.last_ssn}}
+        {% endfor %}
+</ul>
+
+
 {% endblock %}
