@@ -8,8 +8,17 @@ from .models import Prize, Winner
 def index(request):
     prizeList = Prize.objects.all()
     winnerList = Winner.objects.all()
+    winnerDict = {}
+
+    for p in prizeList:
+        wList = [w.last_ssn for w in Winner.objects.filter(prize_id=p)]
+        print(wList)
+        winnerDict[p.pid] = wList
 
     return render(
         request,
         'bonus/index.html',
-        context={'prize_list': prizeList, 'winner_list': winnerList})
+        context={'prize_list': prizeList,
+                 'winner_list': winnerList,
+                 'winner_dict': winnerDict.items()}
+    )
