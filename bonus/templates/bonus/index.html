@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load dict_tag %}
 
 {% block prize %}
 
@@ -31,7 +32,8 @@
         </div>
 
         <div class="winner-list container">
-            <p> {{p}} </p>
+            <p> {{ winner_map | get_value_from_dict:p}} </p>
+
             {% for w in winners %} <div class="winner">{{w}} </div>{% endfor %}
         </div>
     </div>
