@@ -20,5 +20,5 @@ def index(request):
         'bonus/index.html',
         context={'prize_list': prizeList,
                  'winner_list': winnerList,
-                 'winner_dict': winnerDict.items()}
+                 'winner_dict': winnerDict}
     )

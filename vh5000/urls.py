@@ -20,3 +20,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('bonus/', include('bonus.urls')),
 ]
+
+from django.conf.urls.static import static
+from django.conf import settings
+
+urlpatterns += static(settings.STATIC_URL)

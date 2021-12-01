@@ -21,3 +21,8 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
 ]
+
+from django.urls import include
+urlpatterns += [
+    path('', views.index, name='index'),
+]
