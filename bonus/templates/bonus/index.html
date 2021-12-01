@@ -3,7 +3,7 @@
 
 {% block prize %}
 
-<h2> 獎項超級多 </h2>
+<!-- <h2> 獎項超級多 </h2>
 <ul>
     {% for p in prize_list %}
     <div>{{p.pid}}, {{p.cname}}</div>
@@ -12,36 +12,29 @@
     <img src="{% static 'images/kakka.png' %}" alt="kakka">; 
 
     {% endfor %}
-</ul>
+</ul> -->
 
-<h2> 恭喜得獎者 </h2>
 
-<div class="container">
-    <div class="row" id="winner_list">
-        Here is the row
-    </div>
-</div>
-
-<ul>
+<!-- <ul>
     {% for p, winners in winner_dict.items %}
     <li>{{p}}:
         {% for w in wwinners %} {{w}} {% endfor %} </li>
     {% endfor %}
     </li>
-</ul>
+</ul> -->
 
 <div class="row" id="winner_list">
-{% for p, winners in winner_dict.items %}
+    {% for p, winners in winner_dict.items %}
     <div class='col-6 col-sm-4 col-md-3'>
         <div class="logo div">
-              <img src="{% static 'images/xx.png' %}" alt=" {{p}}" class="img-fluid"> 
+            <img src="{% static 'images/xx.png' %}" alt=" {{p}}" class="img-fluid">
         </div>
 
         <div class="winner-list container">
             <p> {{p}} </p>
-            {% for w in winners %} <div class="winner">{{w}} </div>{% endfor %} 
-        </div>    
+            {% for w in winners %} <div class="winner">{{w}} </div>{% endfor %}
+        </div>
     </div>
-{% endfor %}
+    {% endfor %}
 
-{% endblock %}
+    {% endblock %}
