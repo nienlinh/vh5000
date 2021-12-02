@@ -4,16 +4,16 @@
 
 {% block prize %}
 
-<!-- <h2> 獎項超級多 </h2>
+<h2> 獎項超級多 </h2>
 <ul>
     {% for p in prize_list %}
     <div>{{p.pid}}, {{p.cname}}</div>
 
     {% load static %}
-    <img src="{% static 'images/kakka.png' %}" alt="kakka">; 
+    <img src="{% static 'images/{{p.pid}}.png' %}" alt="kakka">;
 
     {% endfor %}
-</ul> -->
+</ul>
 
 
 <!-- <ul>
