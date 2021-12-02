@@ -9,8 +9,7 @@
     {% for p in prize_list %}
     <div>{{p.pid}}, {{p.cname}}</div>
 
-    {% load static %}
-    <img src="{% static 'images/{{p.pid}}.png' %}" alt="kakka">;
+
 
     {% endfor %}
 </ul>
@@ -28,7 +27,7 @@
     {% for p, winners in winner_dict.items %}
     <div class='col-6 col-sm-4 col-md-3'>
         <div class="logo div">
-            <img src="{% static 'images/xx.png' %}" alt=" {{p}}" class="img-fluid">
+            <!-- <img src="{% static 'images/xx.png' %}" alt=" {{p}}" class="img-fluid"> -->
         </div>
 
         <div class="winner-list container">
