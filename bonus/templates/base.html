@@ -40,6 +40,12 @@
     </script>
 
     <style>
+        .center-block {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
         .logo {
             margin: 20px;
         }
@@ -71,13 +77,17 @@
         </div>
     </div>
 
-
     <div class="container">
-
-        {% block prize %}{% endblock %}
-
+        {% block prize_desc %}{% endblock %}
     </div>
 
+    <div class="container">
+        {% block prize %}{% endblock %}
+    </div>
+
+    <div class="container">
+        <hr>
+        <p>Web programming, IECS, FCU, 2021</p>
     </div>
 </body>
 

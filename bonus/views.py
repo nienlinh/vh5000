@@ -13,10 +13,9 @@ def index(request):
 
     for p in prizeList:
         wList = [w.last_ssn for w in Winner.objects.filter(prize_id=p)]
-        print(wList)
         winnerDict[p.pid] = wList
         winnerMap[p.pid] = p.cname
-
+    
     return render(
         request,
         'bonus/index.html',

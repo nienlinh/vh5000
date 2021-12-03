@@ -2,32 +2,25 @@
 {% load static %}
 {% load dict_tag %}
 
+{% block prize_desc %}
+
+{% load static %}
+<img class="rounded mx-auto d-block" src="{% static 'images/drawPrize.jpeg' %}" width="600">
+
+{% endblock %}
+
 {% block prize %}
 
-<h2> 獎項超級多 </h2>
-<ul>
-    {% for p in prize_list %}
-    <div>{{p.pid}}, {{p.cname}}</div>
-
-
-
-    {% endfor %}
-</ul>
-
-
-<!-- <ul>
-    {% for p, winners in winner_dict.items %}
-    <li>{{p}}:
-        {% for w in wwinners %} {{w}} {% endfor %} </li>
-    {% endfor %}
-    </li>
-</ul> -->
+<h3 class="text-center" style="margin-top: 50px;"> 獎項超級多，你中獎了嗎？ </h3>
 
 <div class="row" id="winner_list">
     {% for p, winners in winner_dict.items %}
     <div class='col-6 col-sm-4 col-md-3'>
         <div class="logo div">
-            <!-- <img src="{% static 'images/xx.png' %}" alt=" {{p}}" class="img-fluid"> -->
+            {% load static %}
+            {% with 'images/'|add:p|add:'.png' as image_static %}
+            <img src={% static image_static %}>
+            {% endwith %}
         </div>
 
         <div class="winner-list container">
