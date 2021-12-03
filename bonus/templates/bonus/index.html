@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-{% load static %}
 {% load dict_tag %}
 
 {% block prize_desc %}
 
 {% load static %}
 <img class="rounded mx-auto d-block" src="{% static 'images/drawPrize.jpeg' %}" width="600">
+<img class="rounded mx-auto d-block" src="/static/images/drawPrize.jpeg" width="600">
 
 {% endblock %}
 
@@ -14,21 +14,21 @@
 <h3 class="text-center" style="margin-top: 50px;"> 獎項超級多，你中獎了嗎？ </h3>
 
 <div class="row" id="winner_list">
-    {% for p, winners in winner_dict.items %}
-    <div class='col-6 col-sm-4 col-md-3'>
-        <div class="logo div">
-            {% load static %}
-            {% with 'images/'|add:p|add:'.png' as image_static %}
-            <img src={% static image_static %}>
-            {% endwith %}
-        </div>
+    {% for pid, winners in winnerList_dict.items %}
+        <div class='col-6 col-sm-4 col-md-3'>
+            <div class="logo div">
+                {% load static %}
+                {% with 'images/'|add:pid|add:'.png' as image_static %}
+                    <img src={% static image_static %} class="img-fluid">
+                {% endwith %}
+            </div>
 
-        <div class="winner-list container">
-            <p> {{ winner_map | get_value_from_dict:p}} </p>
-
-            {% for w in winners %} <div class="winner">{{w}} </div>{% endfor %}
+            <div class="winner-list container">
+                <p> {{ prizeCName_dict | get_value_from_dict:pid}} </p>
+                {% for w in winners %} <div class="winner">{{w}} </div>{% endfor %}
+            </div>
         </div>
-    </div>
     {% endfor %}
+</div>
 
-    {% endblock %}
+{% endblock %}

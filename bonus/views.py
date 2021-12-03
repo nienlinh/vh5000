@@ -8,19 +8,20 @@ from .models import Prize, Winner
 def index(request):
     prizeList = Prize.objects.all()
     winnerList = Winner.objects.all()
-    winnerDict = {}
-    winnerMap = {}
+    winnerListDict = {} # 由 pid 取得獲獎者的 list
+    prizeCNameDict = {} # 由 pid 取得 p cname
 
     for p in prizeList:
         wList = [w.last_ssn for w in Winner.objects.filter(prize_id=p)]
-        winnerDict[p.pid] = wList
-        winnerMap[p.pid] = p.cname
+        winnerListDict[p.pid] = wList
+        prizeCNameDict[p.pid] = p.cname
+    
+    print (str(winnerListDict))
+    print (str(prizeCNameDict))
     
     return render(
         request,
         'bonus/index.html',
-        context={'prize_list': prizeList,
-                 'winner_list': winnerList,
-                 'winner_dict': winnerDict,
-                 'winner_map': winnerMap,}
+        context={'winnerList_dict': winnerListDict,
+                 'prizeCName_dict': prizeCNameDict,}
     )
