@@ -10,3 +10,6 @@ In **dj01** example, we demo how to develop a simple web by
 * *Template* design: based template design, extending template design, *template language* to show html and data from views.
 
 In the **dj02** example, we will demo how to use **Form**
+
+
+In the **dj03** example, demo how to use class-based view
