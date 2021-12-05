@@ -20,9 +20,7 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('prizes/', views.PrizeListView.as_view()),
+    path('prizes/<int:pk>', views.PrizeDetailView.as_view(), name='prize-detail'),
 ]
 
-from django.urls import include
-urlpatterns += [
-    path('', views.index, name='index'),
-]
