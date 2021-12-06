@@ -33,7 +33,7 @@ name_mapping = {
 
 
 # 以下程式會建立 prize 的物件
-for p, n in name_mapping:
+for p, n in name_mapping.items():
     p = Prize(pid=p, cname = n, amount = 100)
     p.save()
        
