@@ -34,7 +34,7 @@ name_mapping = {
 
 # 以下程式會建立 prize 的物件
 for p, n in name_mapping.items():
-    p = Prize(pid=p, cname = n, amount = 100)
+    p = Prize.objects.create(pid=p, cname = n, amount = 100)
     p.save()
        
 print (Prize.objects.all())       
@@ -56,7 +56,7 @@ for prize in wk01:
     winnerList = wk01[prize]
     p = Prize.objects.get(pid = prize)
     for w in winnerList:
-        winner = Winner(last_ssn=w, prize_id = p)
+        winner = Winner.objects.create(last_ssn=w, prize_id = p)
         winner.save()
 
 print (Winner.objects.all())       
