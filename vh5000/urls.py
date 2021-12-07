@@ -24,7 +24,11 @@ urlpatterns = [
     path('about/', TemplateView.as_view(template_name="about.html")),
 ]
 
+# for loading static files
 from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns += static(settings.STATIC_URL)
+
+# for loading media
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
