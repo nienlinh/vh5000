@@ -15,6 +15,9 @@ class Prize(models.Model):
     def get_url(self):
         return reverse('prize-detail', args=[str(self.id)])
 
+    class Meta:
+        ordering = ['-amount']
+
     def __str__(self):
         return self.cname
 

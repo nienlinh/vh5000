@@ -2,13 +2,9 @@
 
 {% block prize %}
 
-<div class="card" style="width: 12rem;">
-    <img src="{{ prize.img.url}}" class="card-img-top" alt="logo">
-    <div class="card-body">
-      <h5 class="card-title"> {{prize.cname}} </h5>
-      <p class="card-text">金額：{{prize.amount}}</p>
-      <p class="card-text"> {{prize.desc}} </p> 
-    </div>
-</div>
+    <img src="{{ prize.img.url}}" width='200px' alt="logo">
+      <h5> {{prize.cname}} </h5>
+      <p>金額：{{prize.amount}}</p>
+      <p>{{prize.desc}} </p> 
 
 {% endblock %}
