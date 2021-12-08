@@ -9,6 +9,7 @@ class Prize(models.Model):
     pid = models.CharField(max_length=25)
     cname = models.CharField(max_length=20)
     amount = models.IntegerField()
+    desc = models.TextField(null=True, blank=True)
     img = models.ImageField(upload_to="images/", null=True, blank=True)
 
     def get_url(self):
