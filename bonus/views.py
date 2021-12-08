@@ -13,7 +13,7 @@ def index(request):
     prizeCNameDict = {} # 由 pid 取得 p cname
 
     for p in prizeList:
-        wList = [w.last_ssn for w in Winner.objects.filter(prize=p)]
+        wList = [w.last_ssn for w in Winner.objects.filter(prize_id=p)]
         winnerListDict[p.pid] = wList
         prizeCNameDict[p.pid] = p.cname
     
