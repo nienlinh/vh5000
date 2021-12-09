@@ -40,6 +40,12 @@
     </script>
 
     <style>
+       .sidebar-nav {
+            margin-top: 40px;
+            padding: 0;
+            list-style: none;
+        }
+
         .center-block {
             margin-left: auto;
             margin-right: auto;
@@ -70,25 +76,49 @@
 
 <body>
 
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">加碼劵</h1>
-            <p class="lead">週週開獎，讓你好運領不完</p>
+<div class="container-fluid">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-4">加碼劵</h1>
+                    <p class="lead">週週開獎，讓你好運領不完</p>
+                </div>
+</div>                
+
+                <div class="container">
+                {% block prize_desc %}{% endblock %}
+            </div>
+
+</div>
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-1">
+            <ul class="sidebar-nav">
+                <li><a href=".">第一週</a></li>
+                <li><a href=".">第二週</a></li>
+                <li><a href=".">第三週</a></li>
+                <li><a href=".">第四週</a></li>
+                <li><a href=".">幸運表</a></li>
+            </ul>
+        </div> 
+
+        <div class="col-sm-11">
+
+
+            <div class="container">
+                {% block prize %}{% endblock %}
+            </div>
         </div>
-    </div>
+    </div>    
+</div>
 
-    <div class="container">
-        {% block prize_desc %}{% endblock %}
-    </div>
+<div class="container">
+    <hr>
+    <p>Web programming, IECS, FCU, 2021</p>
+</div>
 
-    <div class="container">
-        {% block prize %}{% endblock %}
-    </div>
 
-    <div class="container">
-        <hr>
-        <p>Web programming, IECS, FCU, 2021</p>
-    </div>
 </body>
 
 </html>

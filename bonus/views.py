@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+
 # Create your views here.
 from .models import Prize, Winner
 
@@ -25,3 +26,12 @@ def index(request):
         context={'winnerList_dict': winnerListDict,
                  'prizeCName_dict': prizeCNameDict,}
     )
+
+from django.views.generic import ListView
+from django.views.generic import DetailView
+
+class PrizeListView(ListView):
+    model=Prize
+
+class PrizeDetailView(DetailView):
+    model=Prize
