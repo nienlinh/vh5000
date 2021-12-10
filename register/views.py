@@ -9,4 +9,4 @@ def index(request):
         'form': form
     }
 
-    return render(request, "register/index.html", context)
+    return render(request, "register/apply.html", context)
