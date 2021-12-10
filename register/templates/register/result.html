@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block prize %}
+    <div class="text-center">
+        您選擇了 {{ choice }}
+    </div>
+    &nbsp;
+    <div class="text-center">
+        <div class="col-auto text-center">
+            <a href="{% url 'Update' id %}" type="submit" class="btn btn-primary">修改</a>
+            <a type="submit" class="btn btn-primary">回到首頁</a>
+        </div>
+    </div>
+{% endblock %}
