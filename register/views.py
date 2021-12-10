@@ -38,4 +38,8 @@ def update(request, pk):
         'form': form
     }
 
+<<<<<<< HEAD
     return render(request, "register/update.html", context)
+=======
+    return render(request, "register/apply.html", context)
+>>>>>>> 5e64cd7e97cccf3f61e2d466822930b37caf59f0

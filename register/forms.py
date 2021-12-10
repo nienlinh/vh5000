@@ -15,5 +15,5 @@ class PersonModelForm(forms.ModelForm):
         labels = {
             'ssn': '身分證字號',
             'tel': '電話號碼',
-            'voucher_id': '綁定'
+            'voucher_id': '申請方式'
         }
