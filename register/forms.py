@@ -10,7 +10,7 @@ class PersonModelForm(forms.ModelForm):
         widgets = {
             'ssn': forms.TextInput(attrs={'class': 'form-control'}),
             'tel': forms.TextInput(attrs={'class': 'form-control'}),
-            'voucher_id': forms.RadioSelect()
+            'voucher_id': forms.RadioSelect(attrs={'onclick': 'javascript:paperCheck();'})
         }
         labels = {
             'ssn': '身分證字號',
