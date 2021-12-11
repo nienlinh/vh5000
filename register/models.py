@@ -19,11 +19,3 @@ class Person(models.Model):
 
     def __str__(self):
         return self.ssn
-
-
-class Voucher(models.Model):
-    vType = models.CharField(max_length=10)
-    amount = models.DecimalField(max_digits=10, decimal_places=0, default=5000)  
-    
-    def __str__(self):
-        return self.vType

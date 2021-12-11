@@ -5,6 +5,11 @@ from django.http import HttpResponse
 # Create your views here.
 from .models import Prize, Winner
 
+def how(request):
+    return render(
+        request,
+        'bonus/how.html',
+    )
 
 def index(request):
     prizeList = Prize.objects.all()

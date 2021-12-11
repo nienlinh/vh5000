@@ -19,11 +19,10 @@ from django.views.generic import TemplateView
 
 
 urlpatterns = [
+    path('', include('register.urls')),
     path('admin/', admin.site.urls),
-    path('bonus/', include('bonus.urls')),
-    path('', include('bonus.urls')),
     path('apply/', include('register.urls')),
-    path('about/', TemplateView.as_view(template_name="about.html")),
+    path('bonus/', include('bonus.urls')),
 ]
 
 # for loading static files

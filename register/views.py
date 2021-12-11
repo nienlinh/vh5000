@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Person, Voucher
+from .models import Person
 from .forms import PersonModelForm
 from django.http import HttpResponse
 
@@ -24,4 +24,4 @@ def index(request):
     }
 
     # field the form
-    return render(request, "register/apply1.html", context)
+    return render(request, "register/apply.html", context)
