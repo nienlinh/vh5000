@@ -3,7 +3,6 @@ from .models import Person
 from .forms import PersonModelForm
 from django.http import HttpResponse
 
-
 def index(request):
 
     if request.method == "POST":
@@ -14,10 +13,8 @@ def index(request):
             # re-direct to a html (show success information)
             context = {'form': form}
             return render(request, "register/apply_success.html", context)            
-
-    else:
-        # GET, show the empty from to fill
-        form = PersonModelForm()
+    
+    form = PersonModelForm()
 
     context = {
         'form': form
