@@ -1,12 +1,25 @@
 from django.shortcuts import render
 from .models import Person, Voucher
 from .forms import PersonModelForm
-# Create your views here.
 
 def index(request):
-    form = PersonModelForm()
+
+    if request.method == "POST":
+        # save to DB
+        form = PersonModelForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # re-direct to a html (show success information)
+            p = Person.objects.get(ssn=form.ssn.value)
+            context = {'form': form}
+            return render(request, "register/apply_success.html", context)            
+    else:
+        # GET, show the empty from to fill
+        form = PersonModelForm()
+
     context = {
         'form': form
     }
 
-    return render(request, "register/index.html", context)
+    # field the form
+    return render(request, "register/apply.html", context)

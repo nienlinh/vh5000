@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 
 {% block prize %}
-    <ul class="errorlist">
-        <li>Sender is required.</li>
-    </ul>
     <form action="" method="POST">
         {% csrf_token %}
         <div class="form-group">
@@ -11,7 +8,7 @@
 
                 {{ form }}
 
-                <input class="btn btn-success" type="submit" value="儲存" />
+                <input class="btn btn-success" type="submit" value="提交" />
             </div>
         </div>
     </form>
