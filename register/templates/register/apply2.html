@@ -1,73 +1,16 @@
 {% extends "base.html" %}
 
 {% block prize %}
-    {{ message }}
     <form action="" method="POST">
         {% csrf_token %}
-        <div class="form-group row">
-            <label for="{{ form.ssn.id_for_label }}" class="col-sm-2 col-form-label">{{ form.ssn.label }}</label>
-            <div class="col-sm-4">
-                {{ form.ssn }}
+        <div class="form-group">
+            <div class="form-group col-md-6">
+
+                {{ form }}
+
+                <input class="btn btn-success" type="submit" value="提交" />
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="{{ form.tel.id_for_label }}" class="col-sm-2 col-form-label">{{ form.tel.label }}</label>
-            <div class="col-sm-4">
-                {{ form.tel }}
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="{{ form.voucher_id.id_for_label }}"
-                   class="col-sm-2 col-form-label">{{ form.voucher_id.label }}</label>
-            <div class="form-group">
-                <div class="form-check" id="div_{{ form.voucher_id.0.id_for_label }}">
-                    {{ form.voucher_id.0.tag }}
-                    <label class="form-check-label" for="{{ form.voucher_id.0.id_for_label }}">
-                        {{ form.voucher_id.0.choice_label }}
-                    </label>
-                </div>
-                <div class="form-check" id="div_digital_radio">
-                    <input type="radio" name="" id="digital_radio" onclick="javascript:showDigital();">
-                    <label class="form-check-label" for="digital_radio"> 數位 </label>
-                    <div id="digital_div" style="display:none">
-                        {% for choice in form.voucher_id %}
-                            {% if forloop.counter > 1 %}
-                                <div class="form-check" id="div_{{ choice.id_for_label }}">
-                                    {{ choice.tag }}
-                                    <label class="form-check-label" for="{{ choice.id_for_label }}">
-                                        {{ choice.choice_label }}
-                                    </label>
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="form-group col-md-2">
-            <input class="btn btn-success" style="margin-top: 30px;" type="submit" value="儲存"/>
         </div>
     </form>
 
-{% endblock %}
-
-{% block script %}
-    <script>
-        function paperCheck() {
-            let result = document.getElementById('{{ form.voucher_id.0.id_for_label }}').checked;
-            if (result) {
-                document.getElementById('digital_radio').checked = false;
-                document.getElementById('digital_div').style.display = 'none';
-            } else document.getElementById('digital_div').style.display = 'block';
-
-        }
-        function showDigital() {
-            let result = document.getElementById('digital_radio').checked;
-            if (result) {
-                document.getElementById('{{ form.voucher_id.0.id_for_label }}').checked = false;
-                document.getElementById('digital_div').style.display = 'block';
-            } else document.getElementById('digital_div').style.display = 'none';
-
-        }
-    </script>
 {% endblock %}

@@ -5,15 +5,14 @@ from django.db import models
 class Person(models.Model):
 
     VOUCHER_CHOICES = [
-        '紙本',
-        '信用卡',
-        '電子票劵',
-        '數位票劵'
+        ('PP', '紙本'),
+        ('CC', '信用卡'),
+        ('ET', '電子票劵'),
+        ('MB', '行動支付')
     ]
-    ssn = models.CharField(max_length=10)
-    tel = models.CharField(max_length=20)
-    voucher_id = models.ForeignKey(
-        "Voucher", on_delete=models.CASCADE)
+    ssn = models.CharField(max_length=10, blank=False)
+    tel = models.CharField(max_length=20, blank=False)
+    voucher_id = models.CharField(max_length=2, choices = VOUCHER_CHOICES, default='PP')
 
     class Meta:
         ordering = ['-ssn']

@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Person, Voucher
 from .forms import PersonModelForm
+from django.http import HttpResponse
+
 
 def index(request):
 
@@ -10,9 +12,9 @@ def index(request):
         if form.is_valid():
             form.save()
             # re-direct to a html (show success information)
-            p = Person.objects.get(ssn=form.ssn.value)
             context = {'form': form}
             return render(request, "register/apply_success.html", context)            
+
     else:
         # GET, show the empty from to fill
         form = PersonModelForm()
@@ -22,4 +24,4 @@ def index(request):
     }
 
     # field the form
-    return render(request, "register/apply.html", context)
+    return render(request, "register/apply1.html", context)

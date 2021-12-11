@@ -2,8 +2,12 @@
 
 {% block prize %}
 
-<p>Apply success</p>
+<p>綁定成功</p>
 
-<p>SSN: {{form.ssn.value}}, TEL: {{form.tel}}, TYPE: {{form.voucher_id.vType}}</p>
+<ul>
+   <li> {{form.ssn.label}}: {{form.ssn.value}}
+   <li> {{form.tel.label}}: {{form.tel.value}}
+   <li> {{form.voucher_id.label}}: {{form.voucher_id.value}} 
+</ul>   
 
 {% endblock %}

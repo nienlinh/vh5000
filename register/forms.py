@@ -29,7 +29,8 @@ class PersonModelForm(forms.ModelForm):
         data = self.cleaned_data['ssn']
 
         if len(data) != 10 :
-            raise ValidationError('Invalid SSN')
+            # raise ValidationError('Invalid SSN')
+            print ('SSN error, len must be 10')
 
         # Remember to always return the cleaned data.
         return data
