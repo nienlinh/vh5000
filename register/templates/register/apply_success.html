@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>綁定成功</p>
+
+<ul>
+   <li> {{form.ssn.label}}: {{form.ssn.value}}
+   <li> {{form.tel.label}}: {{form.tel.value}}
+   <li> {{form.voucher_id.label}}: {{form.voucher_id.value}} 
+</ul>   
+
+{% endblock %}

@@ -10,34 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
-    <title>5000- extra bonus</title>
-
-    <script>
-        function f1() {
-            x = document.getElementById('winner_list').innerHTML = "Hello"
-        }
-
-        function showAllWinner() {
-            let s = "";
-            for (let prize in winNo1) {
-                s += "<div class='col-6 col-sm-4 col-md-3'>";
-                s += '<div class="logo div">';
-                let logo = logo_mapping[prize];
-                s += `<img src="img/${logo}" alt="" class="img-fluid">`;
-                s += "</div>";
-
-                s += `<div class="winner-list container" id="${prize}">`;
-                let prize_name = name_mapping[prize];
-                let winner = winNo1[prize];
-                s += `<p>${prize_name}</p>`;
-                let winner_div = winner.map(x => `<div class="winner"> ${x} </div>`);
-                s += winner_div.join("");
-                s += "</div></div>";
-            }
-            console.log(s);
-            document.getElementById("winner_list").innerHTML = s;
-        }
-    </script>
+    <title>五倍劵</title>
 
     <style>
        .sidebar-nav {
@@ -79,8 +52,8 @@
 <div class="container-fluid">
             <div class="jumbotron jumbotron-fluid">
                 <div class="container">
-                    <h1 class="display-4">加碼劵</h1>
-                    <p class="lead">週週開獎，讓你好運領不完</p>
+                    <h1 class="display-4">五倍劵，讓你不疲倦</h1>
+                    <p class="lead">還有加碼卷，週週開獎，讓你好運領不完</p>
                 </div>
 </div>                
 
@@ -94,6 +67,7 @@
 
     <div class="row">
         <div class="col-sm-1">
+<<<<<<< HEAD:bonus/templates/base.html
             <ul class="sidebar-nav">
                 <li><a href="/bonus">第一週</a></li>
                 <li><a href="">第二週</a></li>
@@ -101,13 +75,33 @@
                 <li><a href="">第四週</a></li>
                 <li><a href="/bonus/prizes">獎項說明</a></li>
             </ul>
+=======
+                <ul class="sidebar-nav">
+                    <li><a href="/">HOME</a></li>
+                </ul>        
+            <h5>五倍劵</h5>
+                <ul class="sidebar-nav">
+                    <li><a href="/apply">申請綁定</a></li>
+                </ul>
+            <h5>加碼劵</h5>
+                <ul class="sidebar-nav">
+                    <li><a href="/bonus/how">怎麼抽</a></li>
+                    <li><a href="/bonus">第一週</a></li>
+                    <li><a href=".">第二週</a></li>
+                    <li><a href=".">第三週</a></li>
+                    <li><a href=".">第四週</a></li>
+                    <li><a href=".">幸運表</a></li>
+                </ul>
+            <hr>
+            <a href="/admin">admin</a>
+>>>>>>> dj05b:register/templates/base.html
         </div> 
 
         <div class="col-sm-11">
 
 
             <div class="container">
-                {% block prize %}{% endblock %}
+                {% block content %}{% endblock %}
             </div>
         </div>
     </div>    
