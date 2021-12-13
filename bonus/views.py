@@ -32,7 +32,7 @@ from django.views.generic import DetailView
 
 class PrizeListView(ListView):
     model=Prize
-    template_name = 'prize_list.html' # 預設檔名，可略
+    template_name = 'bonus/prize_list.html' # 預設檔名，可略
 
 class PrizeDetailView(DetailView):
     model=Prize
