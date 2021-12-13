@@ -32,8 +32,12 @@ from django.views.generic import DetailView
 
 class PrizeListView(ListView):
     model=Prize
-    template_name = 'bonus/prize_list.html' # 預設檔名，可略
+    template_name = 'bonus/prize_list.html'     # 預設檔名，可略
+    context_object_name = 'prize_list'          # 預設為 prize_list, 可略
+
+    def get_queryset(self):
+        return Prize.objects.order_by('-amount')[:3] # 排序與數量
 
 class PrizeDetailView(DetailView):
     model=Prize
-    template_name = 'bonus/prize_detail.html' # 預設檔名，可略
+    template_name = 'bonus/prize_detail.html'   # 預設檔名，可略
