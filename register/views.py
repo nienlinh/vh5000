@@ -23,3 +23,10 @@ def index(request):
 
     # field the form
     return render(request, "register/apply.html", context)
+
+def show_apply(request):
+    person_list = Person.objects.all()
+    context = {
+        'person_list': person_list
+    }
+    return render(request, "register/show.html", context)
