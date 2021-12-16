@@ -3,6 +3,24 @@
 {% block content %}
 
 <h3>目前的綁定狀況</h3>
-{{ person_list }}
+
+   <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>身分證</th>
+                <th>電話</th>
+                <th>綁定模式</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in person_list %}
+            <tr>
+                <td>{{ p.ssn }}</td>
+                <td>{{ p.tel }}</td>
+                <td>{{ p.get_voucher_id_display }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+   </table>
 
 {% endblock %}
