@@ -21,4 +21,7 @@ urlpatterns = [
     path('show/', views.show_apply, name='show'),    
 ]
 
+urlpatterns += [
+    path('myapply/', views.ShowApplyByUserListView.as_view(), name='my-apply'),
+]
 

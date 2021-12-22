@@ -30,3 +30,14 @@ def show_apply(request):
         'person_list': person_list
     }
     return render(request, "apply/show.html", context)
+
+
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import DetailView
+
+class ShowApplyByUserListView(LoginRequiredMixin, DetailView):
+    model = Person
+    template_name ='apply/appy_by_user.html'
+
+    # def get_queryset(self):
+    #     return Person.objects.filter(account=self.request.user).filter(status__exact='o').order_by('due_back')
