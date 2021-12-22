@@ -11,9 +11,9 @@ def index(request):
         if form.is_valid():
             form.save()
             # re-direct to a html (show success information)
-            return render(request, "register/apply_success.html", context) 
+            return render(request, "apply/apply_success.html", context) 
         else:
-            return render(request, "register/apply_fail.html", context) 
+            return render(request, "apply/apply_fail.html", context) 
     
     form = PersonModelForm()
 
@@ -22,11 +22,11 @@ def index(request):
     }
 
     # field the form
-    return render(request, "register/apply.html", context)
+    return render(request, "apply/apply.html", context)
 
 def show_apply(request):
     person_list = Person.objects.all()
     context = {
         'person_list': person_list
     }
-    return render(request, "register/show.html", context)
+    return render(request, "apply/show.html", context)

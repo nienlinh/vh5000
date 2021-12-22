@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bonus.apps.BonusConfig',
-    'register.apps.RegisterConfig',
+    'bonus.apps.BonusConfig',       # add by nlh
+    'apply.apps.ApplyConfig',       # add by nlh
 ]
 
 MIDDLEWARE = [
@@ -53,10 +53,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'vh5000.urls'
 
+import os
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],                  # add by nlh
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -115,11 +116,14 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'        
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-
-import os
+import os                                   # add by nlh
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = (
@@ -127,12 +131,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, '/bonus/static/')
 )
 
-MEDIA_URL ='/media/' 
+MEDIA_URL ='/media/'                        # add by nlh
 MEDIA_ROOT = BASE_DIR / 'media'
 
-
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_REDIRECT_URL = '/'                    # add by nlh

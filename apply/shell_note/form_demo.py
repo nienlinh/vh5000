@@ -1,7 +1,7 @@
 
 # please type 'python manage.py shell' to do the follow experiments.
 
-from register.forms import PersonModelForm
+from apply.forms import PersonModelForm
 
 f = PersonModelForm()
 print (f)

@@ -1,4 +1,9 @@
-from register.models import Person
+'''
+cd apply/shell_note/                                                         
+exec(open("bulk_create.py").read())
+'''
+
+from apply.models import Person
 from random import choice, randint 
 
 def gen_ssn():

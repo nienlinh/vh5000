@@ -49,26 +49,28 @@
 
 <body>
 
-<div class="container-fluid">
-            <div class="jumbotron jumbotron-fluid">
-                <div class="container">
-                    <h1 class="display-4">五倍劵，讓你不疲倦</h1>
-                    <p class="lead">還有加碼卷，週週開獎，讓你好運領不完</p>
-                </div>
-</div>                
+<div class="banner container-fluid">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">五倍劵，讓你不疲倦</h1>
+            <p class="lead">還有加碼卷，週週開獎，讓你好運領不完</p>
+        </div>
+    </div>                
 
-                <div class="container">
-                {% block prize_desc %}{% endblock %}
-            </div>
+    <div class="container">
+        {% block prize_desc %}{% endblock %}
+    </div>
 
 </div>
 
-<div class="container-fluid">
+<div class="main container-fluid">
 
     <div class="row">
-        <div class="col-sm-1">
+        <div class="sidebar col-sm-1">
                 <ul class="sidebar-nav">
                     <li><a href="/">HOME</a></li>
+                    <li><a href="/accounts/login">Login</a></li>
+                    <li><a href="/accounts/logout">logout</a></li>
                 </ul>        
             <h5>五倍劵</h5>
                 <ul class="sidebar-nav">
@@ -88,7 +90,7 @@
             <a href="/admin">admin</a>
         </div> 
 
-        <div class="col-sm-11">
+        <div class="content col-sm-11">
 
 
             <div class="container">
@@ -98,7 +100,7 @@
     </div>    
 </div>
 
-<div class="container">
+<div class="footer container">
     <hr>
     <p>Web programming, IECS, FCU, 2021</p>
 </div>

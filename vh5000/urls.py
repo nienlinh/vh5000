@@ -17,11 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 
-
+from django.views.generic import RedirectView 
 urlpatterns = [
-    path('', include('register.urls')),
+    path('', RedirectView.as_view(url='/apply/', permanent=True)),
     path('admin/', admin.site.urls),
-    path('apply/', include('register.urls')),
+    path('apply/', include('apply.urls')),
     path('bonus/', include('bonus.urls')),
 ]
 
@@ -33,3 +33,8 @@ urlpatterns += static(settings.STATIC_URL)
 
 # for loading media
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# Add Django site authentication urls (for login, logout, password management)
+urlpatterns += [
+    path('accounts/', include('django.contrib.auth.urls')),
+]
