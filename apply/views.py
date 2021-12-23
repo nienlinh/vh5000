@@ -1,15 +1,23 @@
+from django.contrib.auth import login
 from django.shortcuts import render
 from .models import Person
 from .forms import PersonModelForm
 
-def index(request):
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+
+# you can apply only when you have login
+@login_required
+def apply(request):
 
     if request.method == "POST":
         # save to DB
         form = PersonModelForm(request.POST)
         context = {'form': form}
         if form.is_valid():
-            form.save()
+            model_instance = form.save(commit=False)
+            model_instance.account = request.user
+            model_instance.save()
             # re-direct to a html (show success information)
             return render(request, "apply/apply_success.html", context) 
         else:
@@ -24,7 +32,25 @@ def index(request):
     # field the form
     return render(request, "apply/apply.html", context)
 
-def show_apply(request):
+# show my application data based on the login account
+@login_required
+def myapply(request):
+    pass_auth = False
+    if request.user.is_authenticated:
+        pass_auth = True
+        print ("authenticated")
+    else:
+        print ("not authenticated") 
+           
+    context = {
+        "pass_auth": pass_auth, 
+        "user": request.user
+    }
+    return render(request, "apply/my_apply.html", context)
+
+
+# show application for all persons
+def show_all_apply(request):
     person_list = Person.objects.all()
     context = {
         'person_list': person_list
@@ -32,12 +58,8 @@ def show_apply(request):
     return render(request, "apply/show.html", context)
 
 
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import DetailView
 
-class ShowApplyByUserListView(LoginRequiredMixin, DetailView):
-    model = Person
-    template_name ='apply/appy_by_user.html'
 
-    # def get_queryset(self):
-    #     return Person.objects.filter(account=self.request.user).filter(status__exact='o').order_by('due_back')
+# from django.contrib.auth.mixins import LoginRequiredMixin
+# from django.views.generic import DetailView
+
