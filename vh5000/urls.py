@@ -19,7 +19,7 @@ from django.views.generic import TemplateView
 
 from django.views.generic import RedirectView 
 urlpatterns = [
-    path('', RedirectView.as_view(url='/apply/', permanent=True)),
+    path('', RedirectView.as_view(url='/apply/welcome', permanent=True)),
     path('admin/', admin.site.urls),
     path('apply/', include('apply.urls')),
     path('bonus/', include('bonus.urls')),
