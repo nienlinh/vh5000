@@ -36,6 +36,7 @@ def apply(request):
     return render(request, "apply/apply.html", context)
 
 # show my application data based on the login account
+@login_required
 def myapply(request):
     if request.user.is_authenticated:
         # get the person
