@@ -2,14 +2,17 @@ from django.contrib.auth import login
 from django.shortcuts import render
 from .models import Person
 from .forms import PersonModelForm
+from django.http import HttpResponse
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
+def welcome(request):
+    return render(request, "apply/welcome.html")
+
 # you can apply only when you have login
 @login_required
 def apply(request):
-
     if request.method == "POST":
         # save to DB
         form = PersonModelForm(request.POST)
@@ -38,13 +41,15 @@ def myapply(request):
     pass_auth = False
     if request.user.is_authenticated:
         pass_auth = True
-        print ("authenticated")
+        # get the person
+        person = Person.objects.filter(account=request.user)[0]
     else:
         print ("not authenticated") 
            
     context = {
         "pass_auth": pass_auth, 
-        "user": request.user
+        "user": request.user,
+        "person": person 
     }
     return render(request, "apply/my_apply.html", context)
 

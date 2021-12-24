@@ -2,8 +2,13 @@
 
 {% block content %}
 
-<p>My application</p>
+<p>我的綁定</p>
 
-Pass auth: {{user.username}},  {{ pass_auth }}
+<ul>
+    <li> 帳號: {{ user.username }}
+    <li> SSN: {{ person.ssn }}
+    <li> Tel: {{ person.tel }}
+    <li> 申請: {{ person.voucher_id }}
+</ul>    
 
 {% endblock %}
