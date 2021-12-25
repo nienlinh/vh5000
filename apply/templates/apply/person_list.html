@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block  content %}
+    <h1>Prize List</h1>
+    {% if prize_list %}
+      <ul>
+        {% for prize in prize_list %}
+        <li>
+          <a href="{{ prize.get_url }}"> {{ prize.pid }}</a> ({{prize.cname}})
+        </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>There are no prize.</p>    
+    {% endif %}       
+{% endblock %}

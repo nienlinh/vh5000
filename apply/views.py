@@ -26,7 +26,11 @@ def apply(request):
         else:
             return render(request, "apply/apply_fail.html", context) 
     
-    form = PersonModelForm()
+    model_instance = Person.objects.filter(account = request.user)
+    if model_instance != None: 
+        form = PersonModelForm(instance = obj)
+    else:
+        form = PersonModelForm()
 
     context = {
         'form': form
@@ -56,4 +60,32 @@ def show_all_apply(request):
     context = {
         'person_list': person_list
     }
-    return render(request, "apply/show.html", context)
+    return render(request, "apply/show_all.html", context)
+
+from django.shortcuts import get_object_or_404
+
+def update_apply(request, id):
+    context ={}
+ 
+    # fetch the object related to passed id
+    obj = get_object_or_404(Person, id = id)
+ 
+    # pass the object as instance in form
+    form = PersonModelForm(request.POST or None, instance = obj)
+ 
+    if form.is_valid():
+        form.save()
+        return redirect("/")
+ 
+    context["form"] = form
+ 
+    return render(request, "apply/update_apply.html", context)
+
+    # model_instance = Person.objects.filter(account = request.user)
+    # if model_instance != None: 
+    #     form = PersonModelForm(instance = obj)
+    # else:
+    #     form = PersonModelForm()
+ 
+    # return render(request, "apply/apply.html", context)
+

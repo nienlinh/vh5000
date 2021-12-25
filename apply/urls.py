@@ -17,13 +17,15 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.apply, name='apply'),
+    path('apply', views.apply, name='apply'),
     path('showall/', views.show_all_apply, name='showall'),    
 ]
 
 urlpatterns += [
     path('myapply/', views.myapply, name='my-apply'),
     path('welcome/', views.welcome, name='welcome'),
-    
 ]
 
+urlpatterns += [
+    path('update_apply/<int:id>', views.update_apply),
+]
