@@ -27,5 +27,5 @@ urlpatterns += [
 ]
 
 urlpatterns += [
-    path('update_apply/<int:id>', views.update_apply),
+    path('updateapply/<int:id>', views.update_apply),
 ]

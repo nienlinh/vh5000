@@ -66,8 +66,6 @@ from django.shortcuts import get_object_or_404
 
 def update_apply(request, id):
     context ={}
- 
-    # fetch the object related to passed id
     obj = get_object_or_404(Person, id = id)
  
     # pass the object as instance in form
@@ -75,17 +73,22 @@ def update_apply(request, id):
  
     if form.is_valid():
         form.save()
-        return redirect("/")
+        return render(request, "apply/update_success.html")
  
     context["form"] = form
  
     return render(request, "apply/update_apply.html", context)
 
-    # model_instance = Person.objects.filter(account = request.user)
-    # if model_instance != None: 
-    #     form = PersonModelForm(instance = obj)
-    # else:
-    #     form = PersonModelForm()
+def update_apply_by_user(request):
+    obj = Person.objects.filter(account = request.user)
  
-    # return render(request, "apply/apply.html", context)
-
+    # pass the object as instance in form
+    form = PersonModelForm(request.POST or None, instance = obj)
+ 
+    if form.is_valid():
+        form.save()
+        return render(request, "apply/update_success.html")
+ 
+    context["form"] = form
+ 
+    return render(request, "apply/update_apply.html", context)
