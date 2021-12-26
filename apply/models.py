@@ -19,4 +19,4 @@ class Person(models.Model):
         ordering = ['-ssn']
 
     def __str__(self):
-        return self.ssn
+        return self.ssn + ", " + str(self.account)

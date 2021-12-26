@@ -4,11 +4,15 @@
 
 <p>我的綁定</p>
 
+{% if person %}
 <ul>
     <li> 帳號: {{ user.username }}
     <li> SSN: {{ person.ssn }}
     <li> Tel: {{ person.tel }}
     <li> 申請: {{ person.voucher_id }}
 </ul>    
+{% else %}
+<p> 尚未綁定 </p>
+{% endif %}
 
 {% endblock %}
